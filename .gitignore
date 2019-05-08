@@ -3,3 +3,4 @@
 *.iml
 ./ideal/*
 /target/
+*.idea
