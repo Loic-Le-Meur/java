@@ -4,3 +4,4 @@
 ./ideal/*
 /target/
 *.idea/
+*/.idea/*
