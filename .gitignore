@@ -3,3 +3,5 @@ java-parent/\.idea/
 
 *.iml
 /target/*
+
+java-parent/java-lambdas/target/
