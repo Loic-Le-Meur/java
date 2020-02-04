@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>java-parent</artifactId>
+        <groupId>llm.java.samples</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>java-sample</artifactId>
+    <packaging>war</packaging>
+
+    <build>
+        <finalName>server-example</finalName>
+        <plugins>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.wildfly.plugins</groupId>
+                <artifactId>wildfly-maven-plugin</artifactId>
+                <version>1.1.0.Final</version>
+                <configuration>
+                    <force>true</force>
+                    <server-args>
+                        <server-arg>-Djboss.server.base.dir=${jboss.base.dir}/standalone/</server-arg>
+                        <server-arg>-Djboss.server.config.dir=${jboss.base.dir}/standalone/configuration</server-arg>
+                        <server-arg>-Djboss.server.log.dir=${jboss.base.dir}/standalone/logs</server-arg>
+                    </server-args>
+                    <java-opts>
+                        <java-opt>-Xdebug -Xrunjdwp:transport=dt_socket,address=5005,server=y,suspend=n</java-opt>
+                    </java-opts>
+                    <jbossHome>${jboss.home.dir}</jbossHome>
+                    <modules-path>${jboss.custom.modules.dir}</modules-path>
+                </configuration>
+            </plugin>
+
+            <plugin>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>2.17</version>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-clean-plugin</artifactId>
+                <version>2.5</version>
+                <configuration>
+                    <filesets>
+                        <fileset>
+                            <directory>${jboss.base.dir}/standalone/configuration/standalone_xml_history</directory>
+                        </fileset>
+                        <fileset>
+                            <directory>${jboss.base.dir}/standalone/data</directory>
+                        </fileset>
+                        <fileset>
+                            <directory>${jboss.base.dir}/standalone/tmp</directory>
+                        </fileset>
+                        <fileset>
+                            <directory>${jboss.base.dir}/standalone/log</directory>
+                        </fileset>
+                    </filesets>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
+
+    <properties>
+
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <example-maven-plugin.version>1.0.2</example-maven-plugin.version>
+        <version.jboss.maven.plugin>7.7.Final</version.jboss.maven.plugin>
+        <version.surefire.plugin>2.18</version.surefire.plugin>
+
+        <jboss.base.dir>${project.basedir}/jboss</jboss.base.dir>
+        <jboss.custom.modules.dir>${project.basedir}/jboss/modules</jboss.custom.modules.dir>
+        <jboss.home.dir>${env.JBOSS_HOME}</jboss.home.dir>
+
+    </properties>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+</project>

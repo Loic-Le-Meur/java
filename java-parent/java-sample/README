@@ -1,0 +1,14 @@
+Projet créé pour faire découvrir la programmation aux éléves de 3ème.
+
+Le but étant de voir les premières notions de programmation en java avec la class MaClassJava.
+L'idée est de compiler la class MaClassJava avec la commande : javac MaClassJava.java >> MaClassJava.class (langage compilé)
+et d'executer le main en faisant : java MaClassJava
+
+Ensuite l'idée est de montrer une class MaCalculette avec 3 méthodes :
+- addition
+- soustraction
+- division
+
+Et de voir des test JUnits des ces méthodes.
+
+Enfin, l'idée est de montrer une page html sur un server d'application JBoss. expliquer le standalone.xml, la page index.html, ...
