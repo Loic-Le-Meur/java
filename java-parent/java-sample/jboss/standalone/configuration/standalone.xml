@@ -451,9 +451,4 @@
             <remote-destination host="localhost" port="25"/>
         </outbound-socket-binding>
     </socket-binding-group>
-    <deployments>
-        <deployment name="server-example.war" runtime-name="server-example.war">
-            <content sha1="2911ea16726bed50a3202fde954fd7e4d914e57e"/>
-        </deployment>
-    </deployments>
 </server>
