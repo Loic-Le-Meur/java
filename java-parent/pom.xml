@@ -11,6 +11,7 @@
 
     <modules>
         <module>java-lambdas</module>
+        <module>java-sample</module>
     </modules>
 
     <build>
