@@ -12,6 +12,7 @@
     <modules>
         <module>java-lambdas</module>
         <module>java-sample</module>
+        <module>java-hibernate</module>
     </modules>
 
     <build>
